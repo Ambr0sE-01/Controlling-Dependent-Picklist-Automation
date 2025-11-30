@@ -1,0 +1,107 @@
+# Automating Salesforce Picklist Dependencies Using Python
+
+Manually configuring **dependent picklists** inside Salesforce Setup is painful — especially when you have:
+
+- 50+ countries  
+- 500+ states  
+- 1000+ cities  
+- Multi-level dependencies  
+
+Salesforce provides no bulk upload option for dependent picklists. You must manually select controlling values one by one — which is slow and error-prone.
+
+This Python tool solves that problem.
+
+---
+
+## 🚀 What This Tool Automates
+
+Instead of manually creating Salesforce **field dependencies**, this script automates:
+
+### ✔ Generating `<valueSettings>` dependency mappings  
+### ✔ Bulk assignment of controlling → dependent picklist values  
+### ✔ Automatic formatting of Salesforce metadata XML  
+### ✔ Backup creation before editing metadata  
+
+You only maintain a simple Excel file like:
+
+| Country | State |
+|---------|--------|
+| IND | MH |
+| IND | WB |
+| ARE | DUH |
+| ARE | AUD |
+
+The script reads this and automatically builds:
+
+```
+<valueSettings>
+    <controllingFieldValue>IND</controllingFieldValue>
+    <valueName>MH</valueName>
+</valueSettings>
+```
+
+for every combination.
+
+---
+
+## 🧠 Why This Saves Time for Salesforce People
+
+### ⏳ Before Automation  
+You must:
+1. Open Field Dependencies UI  
+2. Select controlling picklist value  
+3. Click checkboxes manually  
+4. Repeat for 200+ values  
+
+Takes **hours to days**, depending on the dataset.
+
+### ⚡ After Automation  
+- Update Excel  
+- Run Python  
+- Deploy metadata  
+
+Takes **less than 10 seconds**.
+
+Huge time saver for:
+
+- Salesforce Admins  
+- Salesforce Developers  
+- Consulting/Implementation teams  
+- Large Enterprise Data migration projects  
+
+---
+
+## 🛠 Who Should Use This
+
+- Anyone working with **country → state → city** picklists  
+- Anyone onboarding new regions  
+- Anyone migrating legacy ERP country/state data into Salesforce  
+- Anyone tired of Salesforce’s Field Dependency UI 😅  
+
+---
+
+## 📦 Deployment Notes
+
+Once the script generates:
+
+```
+Shipping_State__c.field-meta.updated.xml
+```
+
+Rename it and deploy using:
+
+```
+sfdx force:source:deploy -p metadata/customfields
+```
+
+or any DevOps tool.
+
+---
+
+## 🎯 Final Thoughts
+
+This tool is a perfect example of using automation + metadata to bypass Salesforce UI limitations.
+
+It reduces hours of manual clicking down to **seconds**, ensures accuracy, and makes your picklist dependency management scalable.
+
+Use your time for real development — let Python handle the boring parts ✨  

@@ -105,3 +105,5 @@ This tool is a perfect example of using automation + metadata to bypass Salesfor
 It reduces hours of manual clicking down to **seconds**, ensures accuracy, and makes your picklist dependency management scalable.
 
 Use your time for real development — let Python handle the boring parts ✨  
+
+[For reference I have uploaded the Excel and the metadata file feel free to have a look on that]

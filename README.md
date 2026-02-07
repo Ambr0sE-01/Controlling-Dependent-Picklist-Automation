@@ -112,9 +112,4 @@ Automating repetitive tasks to make life easy 💙
 
 ---
 
-## 📜 License  
-MIT License  
-
----
-
 # 🎉 Happy Automating!
